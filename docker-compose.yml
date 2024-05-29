@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  dateutilsweb:
+    build:
+      context: .
+    container_name: dateutilsweb
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - ./public:/dateutils/public
+      - ./cloudflare/cert:/etc/ssl/dateutils.net
+      - ./logs:/var/log/nginx
+    ports:
+      - 443:443
+    networks:
+      - dateutils-network
+    restart: always
+volumes:
+  web-log:
+networks:
+  dateutils-network:
+    external: true
