@@ -1,0 +1,2 @@
+# /etc/cron.d/logrotate
+0 0 * * * /usr/sbin/logrotate /etc/logrotate.conf
